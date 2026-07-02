@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Tea Corner - Kesegaran Alami di Setiap Tegukan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons for Beautiful UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <i class="fa-solid fa-leaf text-xl"></i>
+                </div>
+                <div>
+                    <span class="block text-xl font-extrabold text-gray-900 tracking-tight">Fresh Tea <span class="text-brand-600">Corner</span></span>
+                    <span class="block text-xs font-semibold text-brand-700 tracking-wider uppercase">UAS Digital Entrepreneurship</span>
+                </div>
+            </a>
+
+            <!-- Desk/Nav Menu Links -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="text-brand-700 hover:text-brand-900 transition">Beranda</a>
+                <a href="#menu-section" class="text-gray-500 hover:text-brand-700 transition">Varian Menu</a>
+                <a href="#feedback-section" class="text-gray-500 hover:text-brand-700 transition">Ulasan & Promo</a>
+                <a href="#tracking-section" id="nav-tracking-link" class="text-gray-500 hover:text-brand-700 transition hidden">Lacak Pesanan</a>
+            </nav>
+
+            <!-- CTA & Cart Icons -->
+            <div class="flex items-center space-x-4">
+                <!-- Admin Dashboard Toggle Button -->
+                <button onclick="toggleAdminDashboard()" class="hidden sm:flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition border border-gray-200">
+                    <i class="fa-solid fa-chart-line text-sm text-gray-500"></i>
+                    <span>Portal Owner (Admin)</span>
+                </button>
+
+                <!-- Shopping Cart Trigger Button -->
+                <button onclick="toggleCart()" class="relative p-3 rounded-2xl bg-brand-50 text-brand-700 hover:bg-brand-100 transition duration-300">
+                    <i class="fa-solid fa-shopping-basket text-xl"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center hidden animate-bounce">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative overflow-hidden bg-gradient-to-b from-brand-50/50 via-white to-gray-50 py-16 md:py-24">
+        <!-- Floating Eco Elements -->
+        <div class="absolute top-10 left-10 w-24 h-24 bg-brand-100 rounded-full blur-3xl opacity-60"></div>
+        <div class="absolute bottom-10 right-10 w-32 h-32 bg-emerald-100 rounded-full blur-3xl opacity-60"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Content Column -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-brand-100 text-brand-800 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase shadow-sm">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>100% Gula Tebu Murni & Eco-Friendly</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-none font-serif">
+                        Kesegaran Alami di <span class="text-brand-600 underline decoration-brand-100 decoration-8">Setiap Tegukan</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+                        Racikan es teh manis premium khas Nusantara dengan daun teh pilihan beraroma khas melati. Diproses higienis, disajikan modern, dan ramah kantong mahasiswa!
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#menu-section" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-center shadow-lg shadow-brand-600/30 hover:shadow-brand-600/45 transform hover:-translate-y-0.5 transition duration-300">
+                            Pesan Sekarang <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#feedback-section" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white hover:bg-gray-50 text-gray-700 font-bold text-center border border-gray-200 shadow-sm transition duration-300">
+                            Ambil Diskon 10%
+                        </a>
+                    </div>
+
+                    <!-- Trust Metrics -->
+                    <div class="grid grid-cols-3 gap-6 pt-6 border-t border-gray-100 max-w-md mx-auto lg:mx-0">
+                        <div>
+                            <span class="block text-2xl font-extrabold text-brand-700">Rp 5k+</span>
+                            <span class="block text-xs text-gray-500">Harga Terjangkau</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-extrabold text-brand-700">100%</span>
+                            <span class="block text-xs text-gray-500">Gula Asli</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-extrabold text-brand-700">Cup</span>
+                            <span class="block text-xs text-gray-500">Eco-Friendly</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Visual Column -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-72 h-96 sm:w-80 sm:h-[400px] bg-gradient-to-tr from-brand-600 to-emerald-400 rounded-3xl shadow-2xl p-6 flex flex-col justify-between text-white overflow-hidden group">
+                        <!-- Background Pattern overlay -->
+                        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                        <div class="relative z-10 flex justify-between items-start">
+                            <span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold">Best Seller</span>
+                            <i class="fa-solid fa-heart text-white/80 text-xl"></i>
+                        </div>
+                        <div class="relative z-10 flex flex-col items-center py-6">
+                            <!-- Visual Graphic of Cup -->
+                            <div class="relative w-36 h-48 bg-white/25 backdrop-blur-sm rounded-b-3xl rounded-t-lg border border-white/30 flex flex-col justify-end p-3 shadow-lg transform group-hover:scale-105 transition-transform duration-500">
+                                <!-- Liquid Level -->
+                                <div class="absolute bottom-0 left-0 right-0 h-4/5 bg-amber-700/85 rounded-b-2xl flex flex-col justify-between overflow-hidden">
+                                    <!-- Bubbles or ice shapes inside liquid -->
+                                    <div class="w-full h-full relative">
+                                        <div class="absolute top-4 left-4 w-6 h-6 bg-white/20 rounded-sm rotate-45"></div>
+                                        <div class="absolute top-12 right-6 w-8 h-8 bg-white/20 rounded-sm rotate-12"></div>
+                                        <div class="absolute bottom-6 left-8 w-5 h-5 bg-white/20 rounded-sm -rotate-12"></div>
+                                    </div>
+                                </div>
+                                <!-- Straw -->
+                                <div class="absolute -top-10 left-1/2 w-4 h-24 bg-green-500/90 rounded-full transform -translate-x-1/2 -rotate-12 shadow-sm border border-white/20"></div>
+                            </div>
+                        </div>
+                        <div class="relative z-10 text-center">
+                            <h3 class="text-xl font-bold font-serif">Es Teh Premium Melati</h3>
+                            <p class="text-xs text-brand-50 mt-1">Varian Teh Wangi Melati + Jelly Selasih</p>
+                            <span class="inline-block mt-3 bg-white text-brand-800 px-4 py-1 rounded-full text-sm font-black">Mulai Rp5.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USP ADVANTAGE STRIP -->
+    <section class="bg-white py-10 border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-gray-50 transition">
+                    <div class="p-3 bg-brand-50 rounded-xl text-brand-600">
+                        <i class="fa-solid fa-cube text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 text-base">Tanpa Pemanis Buatan</h4>
+                        <p class="text-xs text-gray-500 mt-1">Kami menggunakan 100% gula tebu murni cair yang dilarutkan secara harian tanpa pemanis sintetis.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-gray-50 transition">
+                    <div class="p-3 bg-brand-50 rounded-xl text-brand-600">
+                        <i class="fa-solid fa-seedling text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 text-base">Cup Ramah Lingkungan</h4>
+                        <p class="text-xs text-gray-500 mt-1">Gelas kemasan kapsul dari bahan ramah lingkungan mudah didaur ulang sebagai kontribusi hijau kami.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-gray-50 transition">
+                    <div class="p-3 bg-brand-50 rounded-xl text-brand-600">
+                        <i class="fa-solid fa-truck-fast text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 text-base">Kurir Instan & Cepat</h4>
+                        <p class="text-xs text-gray-500 mt-1">Bermitra dengan ShopeeFood, GrabFood & GoFood guna menjaga minuman tetap dingin beku sampai tujuan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE MENU SECTION -->
+    <main id="menu-section" class="flex-grow py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight font-serif sm:text-4xl">
+                Segarkan Harimu dengan Menu Kami
+            </h2>
+            <p class="mt-4 text-base text-gray-500">
+                Pilih racikan dasar teh favoritmu, kemudian sesuaikan manis, es, dan topping premium sesuka hati!
+            </p>
+        </div>
+
+        <!-- Menu Filter Tabs -->
+        <div class="flex justify-center space-x-2 mb-10 overflow-x-auto pb-2">
+            <button onclick="filterMenu('all')" id="tab-all" class="px-5 py-2.5 rounded-full text-xs font-bold transition shadow-sm bg-brand-600 text-white">Semua Varian</button>
+            <button onclick="filterMenu('original')" id="tab-original" class="px-5 py-2.5 rounded-full text-xs font-bold transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200">Klasik & Tradisional</button>
+            <button onclick="filterMenu('modern')" id="tab-modern" class="px-5 py-2.5 rounded-full text-xs font-bold transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200">Kekinian & Creamy</button>
+            <button onclick="filterMenu('fruit')" id="tab-fruit" class="px-5 py-2.5 rounded-full text-xs font-bold transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200">Segar Buah</button>
+        </div>
+
+        <!-- Products Grid Container -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Dynamic products will be injected here via JavaScript -->
+        </div>
+    </main>
+
+    <!-- LOYALTY & FEEDBACK SECTION -->
+    <section id="feedback-section" class="bg-emerald-900 text-white py-16 relative overflow-hidden">
+        <!-- background overlay decorative leaves -->
+        <div class="absolute inset-x-0 bottom-0 top-0 opacity-5 pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Feedback Form Column -->
+                <div class="lg:col-span-5 bg-white text-gray-800 p-8 rounded-3xl shadow-xl">
+                    <span class="inline-block bg-brand-100 text-brand-800 px-3.5 py-1 rounded-full text-xs font-bold tracking-wide uppercase mb-4">Loop Feedback Pelanggan</span>
+                    <h3 class="text-2xl font-bold font-serif text-gray-900 mb-2">Beri Ulasan, Dapatkan Diskon!</h3>
+                    <p class="text-xs text-gray-500 mb-6">Umpan balik Anda sangat berarti bagi pengembangan kualitas kami di masa mendatang.</p>
+                    
+                    <form id="feedback-form" onsubmit="handleFeedbackSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nama Anda</label>
+                            <input type="text" id="fb-name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-sm" placeholder="Contoh: Budi Santoso">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Pilih Produk Yang Dinilai</label>
+                            <select id="fb-product" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-sm">
+                                <option value="Original Jasmine Tea">Original Jasmine Tea</option>
+                                <option value="Peach Tea Jelly">Peach Tea Jelly</option>
+                                <option value="Cheesy Milk Tea">Cheesy Milk Tea</option>
+                                <option value="Lychee Selasih Fresh">Lychee Selasih Fresh</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Rating</label>
+                            <div class="flex items-center space-x-1.5 mt-1" id="star-rating">
+                                <button type="button" onclick="setRating(1)" class="text-amber-400 text-xl hover:scale-110 transition"><i class="fa-solid fa-star"></i></button>
+                                <button type="button" onclick="setRating(2)" class="text-amber-400 text-xl hover:scale-110 transition"><i class="fa-solid fa-star"></i></button>
+                                <button type="button" onclick="setRating(3)" class="text-amber-400 text-xl hover:scale-110 transition"><i class="fa-solid fa-star"></i></button>
+                                <button type="button" onclick="setRating(4)" class="text-amber-400 text-xl hover:scale-110 transition"><i class="fa-solid fa-star"></i></button>
+                                <button type="button" onclick="setRating(5)" class="text-amber-400 text-xl hover:scale-110 transition"><i class="fa-solid fa-star"></i></button>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Komentar/Saran</label>
+                            <textarea id="fb-comment" rows="3" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-sm" placeholder="Rasa tehnya enak sekali, manisnya pas!"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition shadow-lg shadow-brand-500/25">
+                            Kirim Feedback & Ambil Kupon
+                        </button>
+                    </form>
+
+                    <!-- Success Promo Coupon Modal State inside Form -->
+                    <div id="coupon-box" class="hidden mt-6 p-4 bg-brand-50 border border-brand-200 rounded-2xl text-center">
+                        <span class="block text-xs text-brand-700 font-bold uppercase tracking-wider mb-1">🎁 Kupon Diskon Anda! 🎁</span>
+                        <div class="flex items-center justify-between bg-white border border-dashed border-brand-400 p-2.5 rounded-xl mt-2">
+                            <span id="coupon-code" class="text-lg font-mono font-black text-brand-800 tracking-wider">FRESH10UAS</span>
+                            <button onclick="copyCoupon()" class="px-4 py-1.5 bg-brand-600 hover:bg-brand-700 text-white rounded-lg text-xs font-bold transition">Salin</button>
+                        </div>
+                        <p class="text-[11px] text-gray-500 mt-2">Masukkan kode ini saat checkout untuk mendapatkan potongan harga 10%!</p>
+                    </div>
+                </div>
+
+                <!-- Info/Program Loyalty Column -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div>
+                        <h2 class="text-3xl font-extrabold font-serif tracking-tight sm:text-4xl">Loyalty Program WhatsApp</h2>
+                        <p class="mt-4 text-base text-emerald-100 max-w-xl">
+                            Setiap pemesanan melalui WhatsApp dan pengiriman ulasan akan secara otomatis mencatat nomor Anda ke sistem loyalty poin digital kami.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Step 1 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-emerald-800 border border-emerald-700 flex items-center justify-center text-xl font-black shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Beli Varian Favoritmu</h4>
+                                <p class="text-xs text-emerald-100">Dapatkan 1 poin digital setiap pembelian 1 cup Fresh Tea Corner rasa apa saja.</p>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-emerald-800 border border-emerald-700 flex items-center justify-center text-xl font-black shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Kumpulkan 10 Poin</h4>
+                                <p class="text-xs text-emerald-100">Akumulasi otomatis tercatat di server WhatsApp Business admin kami tanpa repot bawa kartu kertas.</p>
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-emerald-800 border border-emerald-700 flex items-center justify-center text-xl font-black shrink-0">3</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Tukarkan 1 Cup Gratis!</h4>
+                                <p class="text-xs text-emerald-100">Klaim bonus teh manis segar original gratis untuk pesanan selanjutnya secara bebas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REALTIME TRACKING SECTION (Initially Hidden until checkout) -->
+    <section id="tracking-section" class="bg-gray-100 py-16 border-t border-gray-200 hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+                <div class="text-center mb-8">
+                    <span class="inline-block bg-amber-100 text-amber-800 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Live System Status</span>
+                    <h3 class="text-2xl font-bold font-serif text-gray-900">Pelacakan Pesanan Aktif</h3>
+                    <p class="text-xs text-gray-500 mt-1">ID Pesanan: <span id="track-id" class="font-mono font-bold text-gray-700">#FTC-874291</span></p>
+                </div>
+
+                <!-- Progress Tracker Visual Component -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-2 mb-10 max-w-2xl mx-auto">
+                    <!-- Progress Line background -->
+                    <div class="absolute left-6 md:left-0 top-0 bottom-0 md:bottom-auto md:top-1/2 md:-translate-y-1/2 w-1 md:w-full h-full md:h-1 bg-gray-200 -z-0"></div>
+                    <!-- Active filled progress line -->
+                    <div id="track-progress-bar" class="absolute left-6 md:left-0 top-0 bottom-0 md:bottom-auto md:top-1/2 md:-translate-y-1/2 w-1 md:w-1/3 h-0 md:h-1 bg-brand-500 -z-0 transition-all duration-1000"></div>
+
+                    <!-- Step 1: Diterima -->
+                    <div class="flex md:flex-col items-center gap-4 md:gap-2 relative z-10 w-full md:w-auto">
+                        <div id="step-1-indicator" class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center text-lg font-bold border-4 border-white shadow-md">
+                            <i class="fa-solid fa-receipt"></i>
+                        </div>
+                        <div class="text-left md:text-center">
+                            <p class="text-xs font-black text-gray-900">Diterima</p>
+                            <p class="text-[10px] text-gray-400">14:32</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Dibayar -->
+                    <div class="flex md:flex-col items-center gap-4 md:gap-2 relative z-10 w-full md:w-auto">
+                        <div id="step-2-indicator" class="w-12 h-12 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-lg font-bold border-4 border-white shadow-md transition-colors duration-1000">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+                        <div class="text-left md:text-center">
+                            <p class="text-xs font-bold text-gray-400" id="step-2-text">Verifikasi Pembayaran</p>
+                            <p class="text-[10px] text-gray-400" id="step-2-time">--:--</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Diseduh -->
+                    <div class="flex md:flex-col items-center gap-4 md:gap-2 relative z-10 w-full md:w-auto">
+                        <div id="step-3-indicator" class="w-12 h-12 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-lg font-bold border-4 border-white shadow-md transition-colors duration-1000">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <div class="text-left md:text-center">
+                            <p class="text-xs font-bold text-gray-400" id="step-3-text">Proses Penyeduhan</p>
+                            <p class="text-[10px] text-gray-400" id="step-3-time">--:--</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Dikirim -->
+                    <div class="flex md:flex-col items-center gap-4 md:gap-2 relative z-10 w-full md:w-auto">
+                        <div id="step-4-indicator" class="w-12 h-12 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-lg font-bold border-4 border-white shadow-md transition-colors duration-1000">
+                            <i class="fa-solid fa-truck"></i>
+                        </div>
+                        <div class="text-left md:text-center">
+                            <p class="text-xs font-bold text-gray-400" id="step-4-text">Dalam Pengiriman</p>
+                            <p class="text-[10px] text-gray-400" id="step-4-time">--:--</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 text-center space-y-4">
+                    <p class="text-sm text-gray-600" id="tracking-status-text">
+                        Sistem sedang menunggu konfirmasi pembayaran untuk memproses pesanan Anda.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <a href="javascript:void(0)" id="wa-share-btn" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl bg-green-500 hover:bg-green-600 text-white font-bold text-xs shadow-md transition">
+                            <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Kirim Notifikasi Transaksi Ke Admin WA
+                        </a>
+                        <button onclick="simulateOrderFlow()" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md transition">
+                            <i class="fa-solid fa-forward-step mr-2"></i> Percepat Simulasi Alur (Presentasi UAS)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Col 1 -->
+                <div class="md:col-span-2 space-y-4">
+                    <span class="block text-xl font-extrabold text-white">Fresh Tea <span class="text-brand-500">Corner</span></span>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Proyek rintisan bisnis mikro digital e-commerce guna memenuhi syarat kelulusan UAS Mata Kuliah Digital Entrepreneurship (2 SKS) Semester Genap TA 2025/2026.
+                    </p>
+                    <p class="text-xs font-semibold text-brand-400">Teknik Informatika S-1, Universitas Pamulang</p>
+                </div>
+                <!-- Col 2 -->
+                <div>
+                    <h5 class="text-xs font-extrabold text-white uppercase tracking-wider mb-4">Laporan Bab</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#" class="hover:text-white transition">A. Identifikasi Bisnis</a></li>
+                        <li><a href="#" class="hover:text-white transition">B. Desain Platform</a></li>
+                        <li><a href="#" class="hover:text-white transition">C. Strategi Pemasaran</a></li>
+                        <li><a href="#" class="hover:text-white transition">D. Simulasi Transaksi</a></li>
+                    </ul>
+                </div>
+                <!-- Col 3 -->
+                <div>
+                    <h5 class="text-xs font-extrabold text-white uppercase tracking-wider mb-4">Anggota Kelompok / Pengembang</h5>
+                    <p class="text-xs text-gray-400">[Nama Mahasiswa]</p>
+                    <p class="text-xs text-gray-500 mt-1">NIM: [NIM Ganjil]</p>
+                    <p class="text-xs text-gray-500">Kelas: [Kelas S-1]</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                <p>&copy; 2026 Fresh Tea Corner. Dibuat khusus untuk Ujian Akhir Semester UNPAM.</p>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-instagram text-base"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-whatsapp text-base"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART PANEL SLIDE-OVER (Initially Hidden) -->
+    <div id="cart-sidebar" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Background Overlay -->
+            <div onclick="toggleCart()" class="absolute inset-0 bg-gray-500/75 backdrop-blur-xs transition-opacity duration-300"></div>
+
+            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                <div class="pointer-events-auto w-screen max-w-md transform bg-white shadow-2xl flex flex-col h-full">
+                    <!-- Cart Header -->
+                    <div class="px-6 py-6 border-b border-gray-100 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-shopping-basket text-brand-600 text-xl"></i>
+                            <h2 class="text-lg font-bold text-gray-900">Keranjang Belanja</h2>
+                        </div>
+                        <button onclick="toggleCart()" class="text-gray-400 hover:text-gray-500 p-1.5 rounded-lg hover:bg-gray-100 transition">
+                            <i class="fa-solid fa-xmark text-lg"></i>
+                        </button>
+                    </div>
+
+                    <!-- Cart Content Body -->
+                    <div class="flex-grow overflow-y-auto px-6 py-4 custom-scrollbar" id="cart-items-container">
+                        <!-- Dynamic items will be injected here -->
+                    </div>
+
+                    <!-- Cart Footer & Calculation Block -->
+                    <div class="border-t border-gray-100 px-6 py-6 bg-gray-50 space-y-4">
+                        <!-- Voucher / Promo Code input -->
+                        <div>
+                            <label class="block text-[10px] font-extrabold text-gray-500 uppercase tracking-wider mb-1">Punya Kode Promo?</label>
+                            <div class="flex space-x-2">
+                                <input type="text" id="promo-input" class="flex-grow px-3 py-2 border border-gray-200 rounded-xl text-xs uppercase font-mono tracking-wider focus:outline-none focus:border-brand-500" placeholder="KODEPROMO">
+                                <button onclick="applyPromoCode()" class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl text-xs transition">Gunakan</button>
+                            </div>
+                            <span id="promo-feedback" class="block text-[10px] mt-1 hidden"></span>
+                        </div>
+
+                        <!-- Calculation breakdown -->
+                        <div class="space-y-1.5 text-xs text-gray-600">
+                            <div class="flex justify-between">
+                                <span>Subtotal</span>
+                                <span id="cart-subtotal">Rp 0</span>
+                            </div>
+                            <div class="flex justify-between text-red-500 hidden" id="promo-discount-row">
+                                <span>Diskon Promo (10%)</span>
+                                <span id="cart-discount">-Rp 0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Biaya Kemasan & Layanan</span>
+                                <span id="cart-service-fee">Rp 1.000</span>
+                            </div>
+                            <div class="flex justify-between text-base font-black text-gray-900 border-t border-gray-200 pt-3">
+                                <span>Total Bayar</span>
+                                <span id="cart-total">Rp 0</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <button onclick="openCheckoutModal()" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-2xl text-sm shadow-lg shadow-brand-500/25 flex items-center justify-center space-x-2">
+                                <span>Lanjutkan Pembayaran</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE CHECKOUT MODAL (Initially Hidden) -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex min-h-screen items-center justify-center p-4 text-center sm:p-0">
+            <!-- Modal overlay -->
+            <div onclick="closeCheckoutModal()" class="fixed inset-0 bg-gray-500/75 backdrop-blur-xs transition-opacity"></div>
+
+            <!-- Modal box -->
+            <div class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-gray-100 flex flex-col max-h-[90vh]">
+                <!-- Modal Header -->
+                <div class="bg-gray-50 px-6 py-5 border-b border-gray-100 flex items-center justify-between">
+                    <h3 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-cash-register text-brand-600"></i> Form Checkout & Pembayaran
+                    </h3>
+                    <button onclick="closeCheckoutModal()" class="text-gray-400 hover:text-gray-500 p-1 rounded-lg">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Modal scrollable body -->
+                <div class="overflow-y-auto p-6 space-y-6 custom-scrollbar">
+                    <!-- Form Pelanggan -->
+                    <div class="space-y-4">
+                        <h4 class="text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-100 pb-2">Informasi Pemesan</h4>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nama Lengkap</label>
+                            <input type="text" id="cust-name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm" placeholder="Masukkan nama Anda">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nomor WhatsApp Aktif</label>
+                            <input type="tel" id="cust-phone" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm" placeholder="Contoh: 08123456789">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Metode Pengantaran</label>
+                            <div class="grid grid-cols-2 gap-3 mt-1">
+                                <label class="border border-brand-500 bg-brand-50 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer" id="label-delivery-courier">
+                                    <input type="radio" name="delivery-method" value="courier" checked onclick="toggleDeliveryMethod('courier')" class="text-brand-600 focus:ring-brand-500">
+                                    <span class="text-xs font-bold text-gray-800">Kurir Instan</span>
+                                </label>
+                                <label class="border border-gray-200 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer" id="label-delivery-pickup">
+                                    <input type="radio" name="delivery-method" value="pickup" onclick="toggleDeliveryMethod('pickup')" class="text-brand-600 focus:ring-brand-500">
+                                    <span class="text-xs font-bold text-gray-800">Ambil Sendiri</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="delivery-address-container">
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Alamat Pengiriman Lengkap</label>
+                            <textarea id="cust-address" rows="2" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm" placeholder="Nama Jalan, Blok, RT/RW, Patokan Rumah"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method Section -->
+                    <div class="space-y-4">
+                        <h4 class="text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-100 pb-2">Pilih Cara Pembayaran</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="border border-brand-500 bg-brand-50 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer" id="label-pay-qris">
+                                <input type="radio" name="pay-method" value="qris" checked onclick="togglePayMethod('qris')" class="text-brand-600">
+                                <span class="text-xs font-bold text-gray-800"><i class="fa-solid fa-qrcode text-brand-600 mr-1.5"></i> QRIS</span>
+                            </label>
+                            <label class="border border-gray-200 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer" id="label-pay-bank">
+                                <input type="radio" name="pay-method" value="bank" onclick="togglePayMethod('bank')" class="text-brand-600">
+                                <span class="text-xs font-bold text-gray-800"><i class="fa-solid fa-university text-gray-500 mr-1.5"></i> Bank Transfer</span>
+                            </label>
+                        </div>
+
+                        <!-- Dynamic Display QRIS -->
+                        <div id="pay-qris-display" class="bg-gray-50 border border-gray-100 rounded-2xl p-6 flex flex-col items-center">
+                            <span class="text-[10px] font-black tracking-widest text-gray-400 mb-2 uppercase">Kode QRIS Dinamis</span>
+                            <!-- Mock QRIS Code Graphic with SVG -->
+                            <div class="w-40 h-40 bg-white p-2 border border-gray-200 rounded-xl shadow-inner relative flex items-center justify-center">
+                                <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 5h30v30H5V5zm10 10v10h10V15H15zM65 5h30v30H65V5zm10 10v10h10V15H15zM5 65h30v30H5V65zm10 10v10h10V75H15z" fill="currentColor" class="text-gray-900" />
+                                    <!-- Random QR Blocks inside -->
+                                    <rect x="15" y="45" width="10" height="10" fill="currentColor" class="text-gray-900" />
+                                    <rect x="45" y="15" width="10" height="15" fill="currentColor" class="text-gray-900" />
+                                    <rect x="45" y="45" width="20" height="20" fill="currentColor" class="text-gray-900" />
+                                    <rect x="75" y="45" width="10" height="20" fill="currentColor" class="text-gray-900" />
+                                    <rect x="45" y="75" width="25" height="10" fill="currentColor" class="text-gray-900" />
+                                    <rect x="75" y="75" width="20" height="20" fill="currentColor" class="text-gray-900" />
+                                </svg>
+                                <!-- Logo Brand Overlaid in center -->
+                                <div class="absolute w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center text-white border-2 border-white shadow-md">
+                                    <i class="fa-solid fa-leaf text-sm"></i>
+                                </div>
+                            </div>
+                            <span class="block font-mono font-bold text-xs text-gray-600 mt-3" id="qris-payment-amount">Total: Rp 0</span>
+                            <p class="text-[10px] text-gray-400 text-center mt-1">Gunakan pemindai GoPay, ShopeePay, OVO, LinkAja atau Mobile Banking Anda untuk membayar.</p>
+                        </div>
+
+                        <!-- Dynamic Display Bank -->
+                        <div id="pay-bank-display" class="bg-gray-50 border border-gray-100 rounded-2xl p-5 hidden space-y-3">
+                            <span class="block text-[10px] font-black tracking-widest text-gray-400 uppercase">Rekening Transfer Bank</span>
+                            <div class="flex items-center justify-between bg-white p-3.5 border border-gray-200 rounded-xl">
+                                <div>
+                                    <span class="block text-[10px] text-gray-400 font-bold uppercase">Bank BCA</span>
+                                    <span class="font-mono text-base font-extrabold text-gray-800">7140872911</span>
+                                    <span class="block text-xs text-gray-500">A/N: FRESH TEA CORNER</span>
+                                </div>
+                                <button onclick="copyBankAccount()" class="px-3.5 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold rounded-lg transition">Salin NoRek</button>
+                            </div>
+                            <p class="text-[10px] text-gray-400">Pastikan nominal transfer sesuai dengan total tagihan agar verifikasi otomatis berjalan lancar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="bg-gray-50 px-6 py-4 border-t border-gray-100">
+                    <button onclick="processOrderCheckout()" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-2xl text-sm shadow-lg shadow-brand-500/25 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-receipt"></i>
+                        <span>Konfirmasi & Buat Pesanan</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PORTAL OWNER (ADMIN) MODAL/PANEL (Initially Hidden) -->
+    <div id="admin-panel" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <!-- Overlay -->
+        <div onclick="toggleAdminDashboard()" class="fixed inset-0 bg-gray-900/50 backdrop-blur-xs"></div>
+        <div class="relative max-w-5xl mx-auto my-10 p-4 sm:p-6 lg:p-8 bg-white rounded-3xl shadow-2xl border border-gray-200 flex flex-col z-10 max-h-[90vh]">
+            <!-- Header -->
+            <div class="flex justify-between items-center pb-6 border-b border-gray-100 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-pie text-brand-600"></i> Portal Control Owner & Admin
+                    </h3>
+                    <p class="text-xs text-gray-500 mt-1">Gunakan modul ini untuk pemantauan data real-time, statistik UAS & evaluasi mingguan bisnis.</p>
+                </div>
+                <button onclick="toggleAdminDashboard()" class="p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 rounded-lg transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Dashboard Analytics Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                <!-- Stat Card 1 -->
+                <div class="bg-gradient-to-tr from-brand-50 to-white border border-brand-100 rounded-2xl p-5 shadow-sm">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-bold text-brand-700 uppercase">Omzet Penjualan (Hari Ini)</span>
+                        <i class="fa-solid fa-wallet text-brand-500 text-lg"></i>
+                    </div>
+                    <span id="admin-total-revenue" class="block text-2xl font-extrabold text-gray-900">Rp 125.000</span>
+                    <span class="block text-[10px] text-green-600 mt-1"><i class="fa-solid fa-arrow-up"></i> +12.5% dibanding hari kemarin</span>
+                </div>
+                <!-- Stat Card 2 -->
+                <div class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-bold text-gray-500 uppercase">Pesanan Terproses</span>
+                        <i class="fa-solid fa-receipt text-gray-400 text-lg"></i>
+                    </div>
+                    <span id="admin-total-orders" class="block text-2xl font-extrabold text-gray-900">12 Cup</span>
+                    <span class="block text-[10px] text-gray-400 mt-1">Konversi Sukses: 100%</span>
+                </div>
+                <!-- Stat Card 3 -->
+                <div class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-bold text-gray-500 uppercase">Feedback Pelanggan</span>
+                        <i class="fa-solid fa-star text-amber-400 text-lg"></i>
+                    </div>
+                    <span id="admin-total-reviews" class="block text-2xl font-extrabold text-gray-900">4 Ulasan</span>
+                    <span class="block text-[10px] text-amber-500 mt-1"><i class="fa-solid fa-star"></i> 4.9 dari 5.0 Rating Kepuasan</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 overflow-y-auto custom-scrollbar flex-grow pr-2">
+                <!-- Real-time Active Orders Table -->
+                <div class="lg:col-span-7 space-y-4">
+                    <h4 class="text-xs font-extrabold text-gray-900 uppercase tracking-widest border-b border-gray-100 pb-2 flex items-center justify-between">
+                        <span>Antrean Pesanan Masuk</span>
+                        <span class="px-2 py-0.5 bg-brand-100 text-brand-800 text-[9px] rounded font-bold uppercase animate-pulse">Live Feed</span>
+                    </h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left text-gray-500">
+                            <thead class="text-[10px] text-gray-700 uppercase bg-gray-50 rounded-lg">
+                                <tr>
+                                    <th class="px-4 py-3">Nama</th>
+                                    <th class="px-4 py-3">Pesanan</th>
+                                    <th class="px-4 py-3">Metode</th>
+                                    <th class="px-4 py-3">Total</th>
+                                    <th class="px-4 py-3 text-right">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-orders-table-body" class="divide-y divide-gray-100">
+                                <!-- Dynamic orders will be injected here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Real-time Feedback Loop Logs -->
+                <div class="lg:col-span-5 space-y-4">
+                    <h4 class="text-xs font-extrabold text-gray-900 uppercase tracking-widest border-b border-gray-100 pb-2">Log Feedback Pelanggan</h4>
+                    <div id="admin-feedback-logs" class="space-y-3">
+                        <!-- Dynamic feedback logs go here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT STATE & INTERACTIONS -->
+    <script>
+        // Database Produk (Catalog)
+        const products = [
+            {
+                id: 'original-jasmine',
+                name: 'Original Jasmine Tea',
+                desc: 'Es teh klasik dengan wangi melati alami khas daun teh premium.',
+                price: 5000,
+                category: 'original',
+                img: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&q=80',
+                badge: 'Favorite Klasik'
+            },
+            {
+                id: 'peach-tea-jelly',
+                name: 'Peach Tea Jelly',
+                desc: 'Es teh buah rasa persik manis dipadukan dengan topping jelly lidah buaya.',
+                price: 8000,
+                category: 'fruit',
+                img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&q=80',
+                badge: 'Sangat Segar'
+            },
+            {
+                id: 'cheesy-milk-tea',
+                name: 'Cheesy Milk Tea',
+                desc: 'Es teh susu kental premium dengan saus krim keju gurih di atasnya.',
+                price: 12000,
+                category: 'modern',
+                img: 'https://images.unsplash.com/photo-1541658016709-82535e94bc69?w=500&q=80',
+                badge: 'Terlaris'
+            },
+            {
+                id: 'lychee-selasih',
+                name: 'Lychee Selasih Fresh',
+                desc: 'Es teh manis segar beraroma buah leci asli ditaburi biji selasih premium.',
+                price: 8000,
+                category: 'fruit',
+                img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&q=80',
+                badge: 'Rekomendasi'
+            }
+        ];
+
+        // State Global Aplikasi
+        let cart = [];
+        let feedbackLogs = [
+            { name: "Dewi Lestari", product: "Cheesy Milk Tea", rating: 5, comment: "Krim kejunya melimpah banget, gurih manisnya juara!" },
+            { name: "Rian Hidayat", product: "Original Jasmine Tea", rating: 4, comment: "Es teh murni manisnya pas, aromanya khas melati asli." }
+        ];
+        let currentOrder = null;
+        let selectedRating = 5;
+        let discountMultiplier = 1.0; // No discount initially
+        let simulatedTimelineStep = 1;
+        let timelineInterval = null;
+
+        // Render Catalog on Window Load
+        window.onload = function() {
+            renderProducts(products);
+            renderFeedbackLogs();
+            updateStats();
+        };
+
+        function renderProducts(productList) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+            
+            productList.forEach(prod => {
+                const card = `
+                    <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-xs hover:shadow-lg hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
+                        <div class="relative">
+                            <img src="${prod.img}" alt="${prod.name}" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/500x350/e0f2fe/15803d?text=${encodeURIComponent(prod.name)}'">
+                            ${prod.badge ? `<span class="absolute top-4 left-4 bg-brand-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase shadow-sm">${prod.badge}</span>` : ''}
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 font-serif">${prod.name}</h3>
+                                <p class="text-xs text-gray-500 mt-2 line-clamp-2">${prod.desc}</p>
+                            </div>
+                            <div class="mt-6">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-base font-black text-brand-700">Rp ${prod.price.toLocaleString('id-ID')}</span>
+                                    <button onclick="addToCart('${prod.id}')" class="px-4 py-2.5 rounded-xl bg-brand-50 hover:bg-brand-600 text-brand-700 hover:text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+                                        <i class="fa-solid fa-plus text-[10px]"></i> Tambah
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        // Filter Varian Menu
+        function filterMenu(category) {
+            // Update Active Tab Styles
+            const tabs = ['all', 'original', 'modern', 'fruit'];
+            tabs.forEach(t => {
+                const el = document.getElementById(`tab-${t}`);
+                if (t === category) {
+                    el.className = "px-5 py-2.5 rounded-full text-xs font-bold transition shadow-sm bg-brand-600 text-white";
+                } else {
+                    el.className = "px-5 py-2.5 rounded-full text-xs font-bold transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200";
+                }
+            });
+
+            if (category === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === category);
+                renderProducts(filtered);
+            }
+        }
+
+        // Side-over Cart Sidebar Controls
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            sidebar.classList.toggle('hidden');
+            renderCartItems();
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            const existIndex = cart.findIndex(item => item.id === id);
+
+            if (existIndex > -1) {
+                cart[existIndex].quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartBadge();
+            renderCartItems();
+            
+            // Auto open cart sidebar for high feedback
+            toggleCart();
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cart-badge');
+            const totalCount = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+            
+            if (totalCount > 0) {
+                badge.innerText = totalCount;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function changeQuantity(id, change) {
+            const existIndex = cart.findIndex(item => item.id === id);
+            if (existIndex > -1) {
+                cart[existIndex].quantity += change;
+                if (cart[existIndex].quantity <= 0) {
+                    cart.splice(existIndex, 1);
+                }
+            }
+            updateCartBadge();
+            renderCartItems();
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="h-64 flex flex-col items-center justify-center text-center space-y-4">
+                        <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center text-gray-300 text-3xl">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-sm">Keranjang Kosong</p>
+                            <p class="text-xs text-gray-500 mt-1">Tambahkan varian es teh segar kami untuk memulai transaksi!</p>
+                        </div>
+                    </div>
+                `;
+                calculateTotals();
+                return;
+            }
+
+            cart.forEach(item => {
+                const sub = item.price * item.quantity;
+                const node = `
+                    <div class="flex items-center justify-between py-4 border-b border-gray-100 gap-4">
+                        <img src="${item.img}" class="w-16 h-16 object-cover rounded-2xl border border-gray-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/15803d?text=${encodeURIComponent(item.name)}'">
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-gray-900 text-sm">${item.name}</h4>
+                            <span class="text-xs font-semibold text-brand-700">Rp ${item.price.toLocaleString('id-ID')}</span>
+                            <div class="flex items-center space-x-2.5 mt-2">
+                                <button onclick="changeQuantity('${item.id}', -1)" class="w-6 h-6 rounded bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold text-xs flex items-center justify-center">-</button>
+                                <span class="text-xs font-bold text-gray-800">${item.quantity}</span>
+                                <button onclick="changeQuantity('${item.id}', 1)" class="w-6 h-6 rounded bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold text-xs flex items-center justify-center">+</button>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-sm font-black text-gray-900">Rp ${sub.toLocaleString('id-ID')}</span>
+                            <button onclick="changeQuantity('${item.id}', -${item.quantity})" class="text-[10px] text-red-500 hover:underline mt-1">Hapus</button>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += node;
+            });
+
+            calculateTotals();
+        }
+
+        function calculateTotals() {
+            const subtotal = cart.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
+            const discount = subtotal * (1 - discountMultiplier);
+            const serviceFee = subtotal > 0 ? 1000 : 0;
+            const total = (subtotal - discount) + serviceFee;
+
+            document.getElementById('cart-subtotal').innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
+            document.getElementById('cart-discount').innerText = `-Rp ${discount.toLocaleString('id-ID')}`;
+            document.getElementById('cart-total').innerText = `Rp ${total.toLocaleString('id-ID')}`;
+
+            if (discount > 0) {
+                document.getElementById('promo-discount-row').classList.remove('hidden');
+            } else {
+                document.getElementById('promo-discount-row').classList.add('hidden');
+            }
+        }
+
+        function applyPromoCode() {
+            const code = document.getElementById('promo-input').value.trim().toUpperCase();
+            const feedback = document.getElementById('promo-feedback');
+
+            if (code === 'FRESH10UAS' || code === 'UASGANJIL') {
+                discountMultiplier = 0.9; // 10% discount
+                feedback.className = "block text-[10px] mt-1 font-semibold text-green-600";
+                feedback.innerText = "Kode promo berhasil digunakan! Diskon 10% terpasang.";
+            } else {
+                discountMultiplier = 1.0;
+                feedback.className = "block text-[10px] mt-1 font-semibold text-red-500";
+                feedback.innerText = "Kode promo tidak valid/kedaluwarsa.";
+            }
+            calculateTotals();
+        }
+
+        // Modal Checkout Controls
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                alert("Keranjang belanja masih kosong!");
+                return;
+            }
+            // Auto-fill total payment inside QRIS
+            const totalPayText = document.getElementById('cart-total').innerText;
+            document.getElementById('qris-payment-amount').innerText = `Total: ${totalPayText}`;
+            
+            // Hide Sidebar Cart, Open Checkout Modal
+            toggleCart();
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function toggleDeliveryMethod(method) {
+            const courierLabel = document.getElementById('label-delivery-courier');
+            const pickupLabel = document.getElementById('label-delivery-pickup');
+            const addressContainer = document.getElementById('delivery-address-container');
+
+            if (method === 'courier') {
+                courierLabel.className = "border border-brand-500 bg-brand-50 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer";
+                pickupLabel.className = "border border-gray-200 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer";
+                addressContainer.classList.remove('hidden');
+            } else {
+                courierLabel.className = "border border-gray-200 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer";
+                pickupLabel.className = "border border-brand-500 bg-brand-50 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer";
+                addressContainer.classList.add('hidden');
+            }
+        }
+
+        function togglePayMethod(method) {
+            const qrisLabel = document.getElementById('label-pay-qris');
+            const bankLabel = document.getElementById('label-pay-bank');
+            const qrisDisplay = document.getElementById('pay-qris-display');
+            const bankDisplay = document.getElementById('pay-bank-display');
+
+            if (method === 'qris') {
+                qrisLabel.className = "border border-brand-500 bg-brand-50 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer";
+                bankLabel.className = "border border-gray-200 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer";
+                qrisDisplay.classList.remove('hidden');
+                bankDisplay.classList.add('hidden');
+            } else {
+                qrisLabel.className = "border border-gray-200 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer";
+                bankLabel.className = "border border-brand-500 bg-brand-50 rounded-xl p-3 flex items-center space-x-2.5 cursor-pointer";
+                qrisDisplay.classList.add('hidden');
+                bankDisplay.classList.remove('hidden');
+            }
+        }
+
+        function copyBankAccount() {
+            const dummy = document.createElement("input");
+            document.body.appendChild(dummy);
+            dummy.value = "7140872911";
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            alert("Nomor rekening BCA berhasil disalin ke clipboard!");
+        }
+
+        // Process Order checkout action
+        function processOrderCheckout() {
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const deliveryMethod = document.querySelector('input[name="delivery-method"]:checked').value;
+            const address = document.getElementById('cust-address').value.trim();
+            const payMethod = document.querySelector('input[name="pay-method"]:checked').value;
+
+            if (!name || !phone || (deliveryMethod === 'courier' && !address)) {
+                alert("Mohon isi seluruh data pembeli dan alamat pengiriman dengan lengkap!");
+                return;
+            }
+
+            // Generate order ID
+            const orderId = `#FTC-${Math.floor(100000 + Math.random() * 900000)}`;
+            
+            // Build Current Order State
+            const itemsSummary = cart.map(item => `${item.name} (${item.quantity}x)`).join(", ");
+            const totalAmount = document.getElementById('cart-total').innerText;
+
+            currentOrder = {
+                id: orderId,
+                name: name,
+                phone: phone,
+                items: itemsSummary,
+                total: totalAmount,
+                method: deliveryMethod === 'courier' ? 'Kurir Instan' : 'Ambil Sendiri',
+                payment: payMethod.toUpperCase(),
+                time: new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+            };
+
+            // Setup WhatsApp share button text
+            const waMsg = `Halo Admin Fresh Tea Corner, saya mau konfirmasi pemesanan:%0A- *Nama:* ${name}%0A- *Pesanan:* ${itemsSummary}%0A- *Total Bayar:* ${totalAmount}%0A- *ID Order:* ${orderId}%0A- *Metode:* ${currentOrder.method}%0A- *Metode Pembayaran:* ${payMethod.toUpperCase()}%0A%0ATerima kasih!`;
+            document.getElementById('wa-share-btn').setAttribute('href', `https://wa.me/628123456789?text=${waMsg}`);
+
+            // Update DOM visual Tracking Section
+            document.getElementById('track-id').innerText = orderId;
+            document.getElementById('tracking-section').classList.remove('hidden');
+            document.getElementById('nav-tracking-link').classList.remove('hidden');
+            
+            // Reset Tracking Status UI
+            resetTimelineUI();
+
+            // Clear Cart & Close Modal
+            cart = [];
+            updateCartBadge();
+            closeCheckoutModal();
+
+            // Scroll smoothly to Tracker Section
+            document.getElementById('tracking-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Order Status Live Simulation
+        function resetTimelineUI() {
+            if (timelineInterval) clearInterval(timelineInterval);
+            simulatedTimelineStep = 1;
+
+            // Base reset statuses
+            document.getElementById('track-progress-bar').style.width = '0%';
+            
+            // Steps indicator
+            document.getElementById('step-2-indicator').className = "w-12 h-12 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-lg font-bold border-4 border-white shadow-md";
+            document.getElementById('step-2-text').className = "text-xs font-bold text-gray-400";
+            document.getElementById('step-2-text').innerText = "Verifikasi Pembayaran";
+            document.getElementById('step-2-time').innerText = "--:--";
+
+            document.getElementById('step-3-indicator').className = "w-12 h-12 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-lg font-bold border-4 border-white shadow-md";
+            document.getElementById('step-3-text').className = "text-xs font-bold text-gray-400";
+            document.getElementById('step-3-text').innerText = "Proses Penyeduhan";
+            document.getElementById('step-3-time').innerText = "--:--";
+
+            document.getElementById('step-4-indicator').className = "w-12 h-12 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-lg font-bold border-4 border-white shadow-md";
+            document.getElementById('step-4-text').className = "text-xs font-bold text-gray-400";
+            document.getElementById('step-4-text').innerText = "Dalam Pengiriman";
+            document.getElementById('step-4-time').innerText = "--:--";
+
+            document.getElementById('tracking-status-text').innerText = "Sistem sedang menunggu konfirmasi pembayaran untuk memproses pesanan Anda.";
+        }
+
+        function simulateOrderFlow() {
+            if (!currentOrder) {
+                alert("Belum ada transaksi aktif untuk disimulasikan!");
+                return;
+            }
+
+            if (simulatedTimelineStep >= 4) {
+                alert("Simulasi pesanan telah selesai!");
+                return;
+            }
+
+            simulatedTimelineStep++;
+            const nowTime = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
+            if (simulatedTimelineStep === 2) {
+                // Step 2: Dibayar / Verifikasi Pembayaran
+                document.getElementById('track-progress-bar').style.width = '33%';
+                document.getElementById('step-2-indicator').className = "w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center text-lg font-bold border-4 border-white shadow-md";
+                document.getElementById('step-2-text').className = "text-xs font-black text-gray-900";
+                document.getElementById('step-2-text').innerText = "Pembayaran Terverifikasi";
+                document.getElementById('step-2-time').innerText = nowTime;
+                document.getElementById('tracking-status-text').innerText = "Pembayaran Anda telah sukses diverifikasi otomatis oleh sistem. Kru kami mulai meracik teh Anda.";
+            } else if (simulatedTimelineStep === 3) {
+                // Step 3: Sedang Diseduh
+                document.getElementById('track-progress-bar').style.width = '66%';
+                document.getElementById('step-3-indicator').className = "w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center text-lg font-bold border-4 border-white shadow-md";
+                document.getElementById('step-3-text').className = "text-xs font-black text-gray-900";
+                document.getElementById('step-3-text').innerText = "Sedang Diseduh & Dikemas";
+                document.getElementById('step-3-time').innerText = nowTime;
+                document.getElementById('tracking-status-text').innerText = "Es teh segar pilihan Anda sedang diseduh menggunakan daun premium dan dikemas rapat anti bocor.";
+            } else if (simulatedTimelineStep === 4) {
+                // Step 4: Selesai / Dikirim
+                document.getElementById('track-progress-bar').style.width = '100%';
+                document.getElementById('step-4-indicator').className = "w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center text-lg font-bold border-4 border-white shadow-md";
+                document.getElementById('step-4-text').className = "text-xs font-black text-gray-900";
+                document.getElementById('step-4-text').innerText = currentOrder.method === 'Ambil Sendiri' ? 'Siap Diambil' : 'Kurir Berangkat';
+                document.getElementById('step-4-time').innerText = nowTime;
+                document.getElementById('tracking-status-text').innerText = currentOrder.method === 'Ambil Sendiri' ? "Pesanan segar Anda telah siap! Silakan ambil di konter outlet kami." : "Pesanan Anda telah diserahkan ke kurir instan dan sedang meluncur ke alamat Anda.";
+
+                // Push current completed order to Admin List
+                addOrderToAdminList(currentOrder);
+            }
+        }
+
+        // Feedback & Rating Functions
+        function setRating(rating) {
+            selectedRating = rating;
+            const stars = document.getElementById('star-rating').children;
+            for (let i = 0; i < 5; i++) {
+                if (i < rating) {
+                    stars[i].className = "text-amber-400 text-xl hover:scale-110 transition";
+                } else {
+                    stars[i].className = "text-gray-300 text-xl hover:scale-110 transition";
+                }
+            }
+        }
+
+        function handleFeedbackSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('fb-name').value.trim();
+            const product = document.getElementById('fb-product').value;
+            const comment = document.getElementById('fb-comment').value.trim();
+
+            if (!name || !comment) return;
+
+            // Push to state feedback logs
+            const feedbackObj = { name, product, rating: selectedRating, comment };
+            feedbackLogs.unshift(feedbackObj);
+
+            // Re-render feedback
+            renderFeedbackLogs();
+            updateStats();
+
+            // Show Coupon Reward
+            document.getElementById('coupon-box').classList.remove('hidden');
+
+            // Reset Form fields
+            document.getElementById('fb-name').value = '';
+            document.getElementById('fb-comment').value = '';
+            setRating(5);
+        }
+
+        function copyCoupon() {
+            const dummy = document.createElement("input");
+            document.body.appendChild(dummy);
+            dummy.value = "FRESH10UAS";
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            alert("Kupon diskon FRESH10UAS berhasil disalin! Gunakan saat checkout untuk diskon 10%.");
+        }
+
+        // Admin Dashboard / Portal Control Functions
+        function toggleAdminDashboard() {
+            const panel = document.getElementById('admin-panel');
+            panel.classList.toggle('hidden');
+        }
+
+        function renderFeedbackLogs() {
+            const container = document.getElementById('admin-feedback-logs');
+            container.innerHTML = '';
+
+            feedbackLogs.forEach(fb => {
+                let starString = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= fb.rating) starString += '<i class="fa-solid fa-star text-amber-400 text-[10px]"></i>';
+                    else starString += '<i class="fa-solid fa-star text-gray-200 text-[10px]"></i>';
+                }
+
+                const logNode = `
+                    <div class="p-3.5 bg-gray-50 rounded-2xl border border-gray-100 flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="block text-xs font-bold text-gray-900">${fb.name}</span>
+                                <span class="block text-[10px] text-gray-400">Varian: ${fb.product}</span>
+                            </div>
+                            <div class="flex space-x-0.5">${starString}</div>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2 bg-white p-2 rounded-lg italic border border-gray-100/50">"${fb.comment}"</p>
+                    </div>
+                `;
+                container.innerHTML += logNode;
+            });
+        }
+
+        function addOrderToAdminList(order) {
+            const tbody = document.getElementById('admin-orders-table-body');
+            const row = document.createElement('tr');
+            row.className = "bg-white hover:bg-gray-50 transition border-b border-gray-50";
+            
+            row.innerHTML = `
+                <td class="px-4 py-3 font-bold text-gray-900">${order.name}</td>
+                <td class="px-4 py-3 max-w-xs truncate">${order.items}</td>
+                <td class="px-4 py-3">
+                    <span class="px-2 py-0.5 bg-brand-50 text-brand-800 text-[10px] rounded-full font-semibold border border-brand-100">${order.method}</span>
+                </td>
+                <td class="px-4 py-3 font-bold text-brand-700">${order.total}</td>
+                <td class="px-4 py-3 text-right">
+                    <span class="px-2 py-1 bg-green-100 text-green-800 text-[10px] rounded font-bold uppercase"><i class="fa-solid fa-check"></i> Selesai</span>
+                </td>
+            `;
+
+            tbody.prepend(row);
+            updateStats();
+        }
+
+        function updateStats() {
+            // Count total revenues from HTML values
+            const rows = document.getElementById('admin-orders-table-body').children;
+            let sumRevenue = 125000; // Base baseline static start stats
+            let orderCount = 12 + rows.length;
+
+            for (let i = 0; i < rows.length; i++) {
+                const textVal = rows[i].children[3].innerText.replace(/[^0-9]/g, '');
+                sumRevenue += parseInt(textVal);
+            }
+
+            document.getElementById('admin-total-revenue').innerText = `Rp ${sumRevenue.toLocaleString('id-ID')}`;
+            document.getElementById('admin-total-orders').innerText = `${orderCount} Cup`;
+            document.getElementById('admin-total-reviews').innerText = `${feedbackLogs.length} Ulasan`;
+        }
+    </script>
+</body>
+</html>
